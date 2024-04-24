@@ -57,8 +57,8 @@ function copy(text, options) {
         if (typeof e.clipboardData === "undefined") { // IE 11
           debug && console.warn("unable to use e.clipboardData");
           debug && console.warn("trying IE specific stuff");
-          window.clipboardData.clearData();
-          var format = clipboardToIE11Formatting[options.format] || clipboardToIE11Formatting["default"]
+          var format = clipboardToIE11Formatting[options.format] || clipboardToIE11Formatting["default"];
+          window.clipboardData.clearData(format);
           window.clipboardData.setData(format, text);
         } else { // all other browsers
           e.clipboardData.clearData(options.format);
